@@ -1,0 +1,120 @@
+﻿@model PaymentRecordDetailViewModel;
+@{
+    ViewBag.Title = "Payment Details";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between">
+        <div class="content">
+
+            <div>
+                <h3>
+                    PayCompute
+                </h3>
+                <div>
+                    <p>@Model.Address</lp>
+                    <p>@Model.City</p>
+                    <p>@Model.PostCode</p>
+                </div>
+
+            </div>
+
+            <div class="info my-5">
+                <h3>Employee Name: @Model.FullName</h3>
+            </div>
+        </div>
+        <div class="content">
+            <div>
+                <h3>
+                    PayDate: @Model.PayDate
+                </h3>
+                <div>
+                    <p>Tax Code: @Model.TaxCode</lp>
+                    <p>Year: @Model.Year</p>
+                    <p>HMRC</p>
+                </div>
+
+            </div>
+
+            <div class="info my-5">
+                <h3>National Insuraance Number: @Model.Nino </h3>
+            </div>
+        </div>
+
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Earning</th>
+                <th scope="col">Hour</th>
+                <th scope="col">Rates</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Deductions</th>
+                <th scope="col">Amounts</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Basic:</th>
+                <td>@Model.ContractualHours</td>
+                <td>@Model.HourlyRate</td>
+                <td>@Model.ContractualEarnings</td>
+                <td><h4>Tax:</h4></td>
+                <td>@Model.Tax</td>
+            </tr>
+            <tr>
+                <th scope="row">Overtimes:</th>
+                <td>@Model.OvertimeHours</td>
+                <td>@Model.OvertimeRate</td>
+                <td>@Model.OvertimeEarnings</td>
+                <td><h4>NIC:</h4></td>
+                <td>@Model.NIC</td>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><h4>UNION:</h4></td>
+                <td>@Model.UnionFee.Value</td>
+            </tr>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><h4>SLC:</h4></td>
+                <td>@Model.SLC.Value</td>
+            </tr>
+            <tr class="border-bottom-1"">
+                <th scope="row">Total:</th>
+                <td>@Model.HoursWorker</td>
+                <td></td>
+                <td>@Model.TotalEarnings</td>
+                <td></td>
+                <td>@Model.TotalDeduction</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="row my-5 bg-light">
+        <div class="col btn-dark">
+           
+        </div>
+        <div class="col btn-dark">
+           
+        </div>
+          <div class="col btn-dark">
+           
+        </div>
+        <div class="col btn-dark">
+            NetPay: 
+        </div>
+        <div class="col btn-dark">
+            @Model.NetPayment
+        </div>
+    </div>
+
+
+</div>

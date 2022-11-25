@@ -1,0 +1,43 @@
+﻿@model EmployeeDetailsViewModel
+
+<div class="col-md-12 grid-margin grid-margin-md-0">
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Employee" asp-action="Index">Employee List</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Employee Detail</li>
+                </ol>
+            </nav><br />
+            <div class="wrap d-flex justify-content-start justify-content-sm-center flex-wrap">
+                <img class="rounded-circle shadow-lg" style="width:300px; height:350px" src="@Url.Content(Model.ImageUrl)"/>
+                <div class="wrap align-items-center ml-5">
+                    <p class="font-weight-bold text-success" style="font-size20px">@Model.FullName</p>
+                    <p class="font-weight-bold text-success">Role: @Model.Designation</p>
+                    <p class="font-weight-bold text-success">Gender: @Model.Gender</p>
+                    <p class="font-weight-bold text-success">Date Of Birth: @Model.DoB.ToString("dd/MM/yyyy")</p>
+                    <p class="font-weight-bold text-success">Employee Number: @Model.EmployeeNo</p>
+                    <p class="font-weight-bold text-success">NI Number: @Model.NationalInsuranceNo</p>
+                    <p class="font-weight-bold text-success">Email: @Model.Email</p>
+                    <br /><br />
+                    <p class="font-weight-bold">Pay & Deduction</p>
+                    <hr style="background-color:crimson"/>
+                    <p class="font-weight-normal text-success">Payment Method: @Model.PaymentMethod</p>
+                    <p class="font-weight-normal text-success">Student Loan: @Model.StudentLoan</p>
+                    <p class="font-weight-normal text-success">Union Member: @Model.UnionMember</p>
+                    <br /><br />
+                    <p class="font-weight-bold">Address</p>
+                    <hr style="background-color:crimson" />
+                    <p class="font-weight-normal">@Model.Address</p>
+                    <p class="font-weight-normal">@Model.City</p>
+                    <p class="font-weight-normal">@Model.PostCode</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

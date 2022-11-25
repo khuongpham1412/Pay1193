@@ -1,0 +1,80 @@
+﻿@model IEnumerable<EmployeeIndexViewModel>
+
+@{
+    ViewBag.Title = "Employees";
+}
+<div class="row">
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Employee List</li>
+                </ol>
+            </nav><br />
+            <div class="row">
+                <a class="btn btn-xs btn-outline-success float-md-right"
+                    asp-controller="Employee" asp-action="Create"
+                >Create Employee</a>
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr>
+                            <th>Employee No</th>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Designation</th>
+                            <th>City</th>
+                            <th>Joined</th>
+                            <th class="text-warning">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var item in Model) 
+                        {
+                            <tr>
+                                <td>
+                                    <a>@item.EmployeeNo</a>
+                                </td>
+                                <td>
+                                    <img src="@Url.Content(item.ImageUrl)" alt="image" />
+                                </td>
+                                <td>
+                                    @item.FullName
+                                </td>
+                                <td>
+                                    @item.Gender
+                                </td>
+                                <td>
+                                    @item.Designation
+                                </td>
+                                <td>@item.Email</td>
+                                <td>@item.DateJoined</td>
+                                <td>
+                                    <a class="text-primary" 
+                                    asp-controller="Employee" 
+                                    asp-action="Detail"
+                                    asp-route-id="@item.Id"><i class="fas fa-bars"></i>Detail</a>
+
+                                   <a class="text-success"
+                                   asp-controller="Employee"
+                                   asp-action="Edit"
+                                   asp-route-id="@item.Id"><i class="fas fa-edit"></i>Edit</a>
+
+                                   <a class="text-danger"
+                                   asp-controller="Employee"
+                                   asp-action="Delete"
+                                   asp-route-id="@item.Id"><i class="fas fa-trash-alt"></i>Delete</a>
+                                </td>
+                               
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+          
+        </div>
+    </div>
+</div>

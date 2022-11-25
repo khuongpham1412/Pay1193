@@ -1,0 +1,38 @@
+﻿@model EmployeeDeleteViewModel
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a asp-controller="Employee" asp-action="Index">Employee List</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">Delete Employee</li>
+                </ol>
+            </nav><br />
+            <form method="post" asp-action="Delete" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <input asp-for="FullName" class="form-control font-weight-bold" readonly style="background-color: #293043"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-secondary btn-rounded float-left"><i class="fas fa-plus-square" style="margin-right:auto.7em"></i>Delete</button>
+                    <a asp-controller="Employee" asp-action="Index" class="btn btn-primary btn-rounded float-right" ><i class="fas fa-caret-square-left" style="margin-right:auto.7em"></i>Cancel</a>
+                    <br />
+                    <br />
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_validationScriptsPartial");
+    }
+    }
